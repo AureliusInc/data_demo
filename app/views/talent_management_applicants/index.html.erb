@@ -1,0 +1,211 @@
+<body class="talent-managment">
+
+    <div class="container-fluid">
+        <div class="col-md-offset-1 col-md-10 col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb" style="margin-bottom: 0px">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="active">Recruitment</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-header">
+                        <h2 class="text-center">Recruitment</h2>
+                        <small><%= @year %></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="min-height: 150px">
+                <div class="col-sm-6 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="menuselect">
+                                <h5 class="text-center" style="margin-top: 0px">Job Type Selector</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="text-center">Total applicants: </h4>
+                        </div>
+                        <div class="panel-body text-center panel-number" id="total-applicants"></div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-sm-6 col-md-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5>Total Hired</h5>
+                        </div>
+                        <div class="panel-body text-center panel-number" id="total-hired"></div>
+                    </div>
+                </div> -->
+
+                <div class="col-sm-6 col-md-4" id="row-selection">
+                    <div class="panel panel-white">
+                        <div class="panel-body">
+                            <div class="row">
+                                <!-- <div class="col-sm-6"> -->
+                                    <!-- <button type="button" name="button" class="btn btn-info btn-block start-tour">Take a Tour</button> -->
+                                <!-- </div> -->
+                                <div class="col-sm-12">
+                                    <a href='javascript:dc.filterAll();dc.redrawAll();' class="btn btn-success btn-block btn-lg">Reset All</font>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6" id="date-chart">
+                <h4>Applications By Date
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Date Range:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:dateChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+            <div class="col-sm-3 col-md-3" id="hired-chart">
+                <h4>Hired
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Filter:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:hiredChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+            <div class="col-sm-6 col-md-3" id="gender-chart">
+                <h4>Gender
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Filter:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:genderChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4" id="ethnicity-chart">
+                <h4>Ethnicity
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Filter:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:ethnicityChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+            <div class="col-sm-6 col-md-4" id="position-chart">
+                <h4>Position
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Filter:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:positionChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+            <div class="col-sm-6 col-md-4" id="internal-external-chart">
+                <h4>Internal/External
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Filter:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:internalExternalChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6" id="source-chart">
+                <h4>Recruitment Source
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Filter:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:sourceChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+            <div class="col-sm-6 col-md-6" id="certification">
+                <h4>Certification
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Filter:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:certificationChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12" id="pipeline-chart">
+                <h4>Pipeline Stage
+                    <br/>
+                    <small>
+                        <span class='reset' style="display: none;">Filter:
+                            <span class='filter'></span>
+                            <a class='reset' href='javascript:pipelineChart.filterAll();dc.redrawAll();'>reset</a>
+                        </span>
+                    </small>
+                </h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-header">
+                    <h2 class="text-center">Applicant Table</h2>
+                </div>
+                <table class="table" id="applicant-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position Category</th>
+                            <th>Job Applied For</th>
+                            <th>Last Access</th>
+                            <!-- <th>Date Completed</th> -->
+                            <th>Current Pipeline Stage</th>
+                            <th>Hired</th>
+                            <th>Certification Institution</th>
+                            <th>Gender</th>
+                            <th>Ethnicity</th>
+                            <th>Source</th>
+                            <th>I/E</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
