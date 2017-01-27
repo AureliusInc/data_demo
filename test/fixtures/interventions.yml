@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concern: MyString
+  sub_concern: MyString
+  where: MyString
+  when: MyString
+  frequency: MyString
+  follow_up: 2017-01-27
+  name: MyString
+  goal: MyText
+  occured: false
+  working: false
+  complete: false
+
+two:
+  concern: MyString
+  sub_concern: MyString
+  where: MyString
+  when: MyString
+  frequency: MyString
+  follow_up: 2017-01-27
+  name: MyString
+  goal: MyText
+  occured: false
+  working: false
+  complete: false

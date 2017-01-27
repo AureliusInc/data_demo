@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Concern:</strong>
+  <%= @intervention.concern %>
+</p>
+
+<p>
+  <strong>Sub concern:</strong>
+  <%= @intervention.sub_concern %>
+</p>
+
+<p>
+  <strong>Where:</strong>
+  <%= @intervention.where %>
+</p>
+
+<p>
+  <strong>When:</strong>
+  <%= @intervention.when %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @intervention.frequency %>
+</p>
+
+<p>
+  <strong>Follow up:</strong>
+  <%= @intervention.follow_up %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @intervention.name %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @intervention.goal %>
+</p>
+
+<p>
+  <strong>Occured:</strong>
+  <%= @intervention.occured %>
+</p>
+
+<p>
+  <strong>Working:</strong>
+  <%= @intervention.working %>
+</p>
+
+<p>
+  <strong>Complete:</strong>
+  <%= @intervention.complete %>
+</p>
+
+<%= link_to 'Edit', edit_intervention_path(@intervention) %> |
+<%= link_to 'Back', interventions_path %>
