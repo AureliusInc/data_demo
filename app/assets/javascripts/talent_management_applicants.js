@@ -11,11 +11,6 @@ $(document).on("turbolinks:load", function() {
             data.forEach(function(d) {
                 d.datecomp = dateFormat.parse(d.datecomp);
                 d.hired = Number(d.hired);
-                // if ((/\S/.test(d.JobTypesAppliedFor2)) && typeof d.JobTypesAppliedFor2 !== 'undefined') {
-                //   d.JobTypesAppliedFor2 = d.JobTypesAppliedFor2.trim();
-                // } else {
-                //   d.JobTypesAppliedFor2 = "Not Given";
-                // }
             });
 
             var ndx = crossfilter(data);
@@ -70,18 +65,12 @@ $(document).on("turbolinks:load", function() {
 
 
             // Calculate Groups
-            // var applicantsByDate = date.group();
-            // var applicantsBySource = source.group();
-            // var applicantsByHired = hired.group();
-            // var applicantsByGender = gender.group();
-            // var applicantsByEthnicity = ethnicity.group();
-            // var applicantsByCategory = category.group();
-            // var applicantsByInternalexternal = internalexternal.group();
-            // var applicantsByCertification = certification.group();
-            // var applicantsByPipeline = pipeline.group();
             var applicantsByJob = job.group();
 
             var all = ndx.groupAll();
+
+            // Refactor custom reduce function and I will give a bonus
+            // All the functions below are the same
 
             // Date reduce function
             var applicantsByDate = date.group().reduce(
@@ -364,13 +353,13 @@ $(document).on("turbolinks:load", function() {
                 }
             );
 
+            // End Refactor bonus
 
-            // Didn't get hired to work
+
             var totalHired = hired.group().reduceSum(function(d) {
                 return d.hired;
             })
 
-            // Count the unique applicants
             var totalApplicants = ndx.groupAll().reduce(
                 function(p, d) {
                     if (d.appno in p.applicationId) p.applicationId[d.appno]++;
@@ -399,9 +388,7 @@ $(document).on("turbolinks:load", function() {
             );
 
             // Charts
-            // lineChart() numberDisplay() rowChart() pieChart()
             applicantsNumber = dc.numberDisplay("#total-applicants");
-            // hiredNumber = dc.numberDisplay("#total-hired");
             pipelineChart = dc.rowChart("#pipeline-chart");
             dateChart = dc.lineChart("#date-chart");
             sourceChart = dc.rowChart("#source-chart");
@@ -429,19 +416,13 @@ $(document).on("turbolinks:load", function() {
                     return d.applicantCount;
                 }).group(totalApplicants);
 
-            // hiredNumber
-            //     .formatNumber(d3.format("d"))
-            //     .valueAccessor(function(d) {
-            //       console.log(d);
-            //       return d;
-            //     }).group(totalHired);
-
             var xAxis = dateChart.xAxis().tickFormat(d3.time.format('%m/%d'));
 
-            //Define threshold values for data
             var minDate = date.bottom(1)[0].datecomp;
             var maxDate = date.top(1)[0].datecomp;
 
+
+            // Change this to the date select dropdowns
             dateChart.height(280).margins({
                     top: 10,
                     right: 50,
