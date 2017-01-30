@@ -49,6 +49,14 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use MomentJs for datepicker
+gem 'momentjs-rails', '>= 2.9.0'
+# Use bootstrap for datepicker
+gem 'bootstrap-sass', '~> 3.3.6'
+# Use Datepicker for Date
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
+
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

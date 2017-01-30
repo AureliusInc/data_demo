@@ -68,25 +68,44 @@
         </div>
 
         <div class="row">
-
-          <!-- Change this to "Start date" and "End date" select boxes -->
-          <!-- Preferred that you use https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-
-            <div class="col-sm-6 col-md-6" id="date-chart">
-                <h4>Applications By Date
-                    <br/>
-                    <small>
-                        <span class='reset' style="display: none;">Date Range:
-                            <span class='filter'></span>
-                            <a class='reset' href='javascript:dateChart.filterAll();dc.redrawAll();'>reset</a>
-                        </span>
-                    </small>
-                </h4>
+          <!-- https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="menuselect">
+                            <h5 class="text-center" style="margin-top: 0px">Applications By Date</h5>
+                        </div>
+                        <span class="">Start</span>
+                        <div class="row">             
+                            <div class='col-sm-12'>
+                                <div class="form-group">
+                                    <div class='input-group date'  style="margin-left: 13px; margin-top: 2px;" id='datetimepickerStart'>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="">End</span>
+                        <div class="row">
+                            <div class='col-sm-12'>
+                                <div class="form-group">
+                                    <div class='input-group date'  style="margin-left: 13px; margin-top: 2px;" id='datetimepickerEnd'>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-
-
-            <div class="col-sm-3 col-md-3" id="hired-chart">
+            <div class="col-sm-4 col-md-4" id="hired-chart">
                 <h4>Hired
                     <br/>
                     <small>
@@ -97,7 +116,7 @@
                     </small>
                 </h4>
             </div>
-            <div class="col-sm-6 col-md-3" id="gender-chart">
+            <div class="col-sm-4 col-md-4" id="gender-chart">
                 <h4>Gender
                     <br/>
                     <small>

@@ -7,7 +7,8 @@ $(document).on("turbolinks:load", function() {
         makeRecruitmentGraphs(d3variable);
 
         function makeRecruitmentGraphs(data) {
-            var dateFormat = d3.time.format("%m/%d/%Y");
+            //Formatting for 4-digit year
+            var dateFormat = d3.time.format("%m/%d/%y");
             data.forEach(function(d) {
                 d.datecomp = dateFormat.parse(d.datecomp);
                 d.hired = Number(d.hired);
@@ -390,7 +391,6 @@ $(document).on("turbolinks:load", function() {
             // Charts
             applicantsNumber = dc.numberDisplay("#total-applicants");
             pipelineChart = dc.rowChart("#pipeline-chart");
-            dateChart = dc.lineChart("#date-chart");
             sourceChart = dc.rowChart("#source-chart");
             hiredChart = dc.pieChart("#hired-chart");
             genderChart = dc.pieChart("#gender-chart");
@@ -416,33 +416,34 @@ $(document).on("turbolinks:load", function() {
                     return d.applicantCount;
                 }).group(totalApplicants);
 
-            var xAxis = dateChart.xAxis().tickFormat(d3.time.format('%m/%d'));
-
+            // Select dropdowns
             var minDate = date.bottom(1)[0].datecomp;
             var maxDate = date.top(1)[0].datecomp;
+            var startDate = date.bottom(1)[0].datecomp;
+            var endDate = date.top(1)[0].datecomp;
 
+            $(function () {
+                $('#datetimepickerStart').datetimepicker({
+                    useCurrent: false 
+                }).data("DateTimePicker").format('MMM Do YYYY').defaultDate(startDate).date(startDate);
 
-            // Change this to the date select dropdowns
-            dateChart.height(280).margins({
-                    top: 10,
-                    right: 50,
-                    bottom: 30,
-                    left: 50
-                }).dimension(date)
-                .group(applicantsByDate)
-                .valueAccessor(function(d) {
-                    return d.value.applicationCount
-                })
-                .renderArea(true)
-                .transitionDuration(500)
-                .mouseZoomable(true)
-                .x(d3.time.scale().domain([minDate, maxDate]))
-                .round(d3.time.month.round)
-                .xUnits(d3.time.months)
-                .elasticY(true)
-                .renderHorizontalGridLines(true)
-                .renderVerticalGridLines(true)
-                .yAxis().ticks(6);
+                $('#datetimepickerEnd').datetimepicker({
+                    useCurrent: false 
+                }).data("DateTimePicker").format('MMM Do YYYY').defaultDate(endDate).date(endDate);
+
+                $("#datetimepickerStart").on("dp.change", function (e) {
+                    startDate = dateFormat.parse(e.date.format('MM/DD/YY'));
+                    date.filterAll();
+                    date.filterRange([startDate, endDate]);
+                    dc.redrawAll();  
+                });
+                $("#datetimepickerEnd").on("dp.change", function (e) {
+                    endDate = dateFormat.parse(e.date.format('MM/DD/YY'));
+                    date.filterAll();
+                    date.filterRange([startDate, endDate]);
+                    dc.redrawAll();  
+                });
+            });
 
             sourceChart
                 .height(500)
