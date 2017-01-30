@@ -17,5 +17,5 @@
 //= require d3
 //= require_tree .
 //= require_directory ../../../vendor/assets/javascripts
-//= require moment
+//= require moment 
 //= require bootstrap-datetimepicker

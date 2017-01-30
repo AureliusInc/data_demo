@@ -419,16 +419,31 @@ $(document).on("turbolinks:load", function() {
             // Select dropdowns
             var minDate = date.bottom(1)[0].datecomp;
             var maxDate = date.top(1)[0].datecomp;
+            // Filter dates
             var startDate = date.bottom(1)[0].datecomp;
             var endDate = date.top(1)[0].datecomp;
 
             $(function () {
                 $('#datetimepickerStart').datetimepicker({
-                    useCurrent: false 
+                    useCurrent: false, icons: {
+                    time: 'fa fa-clock-o',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-plus',
+                    down: 'fa fa-minus',
+                    next: 'fa fa-chevron-right',
+                    previous: 'fa fa-chevron-left'
+                    }
                 }).data("DateTimePicker").format('MMM Do YYYY').defaultDate(startDate).date(startDate);
 
                 $('#datetimepickerEnd').datetimepicker({
-                    useCurrent: false 
+                    useCurrent: false, icons: {
+                    time: 'fa fa-clock-o',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-plus',
+                    down: 'fa fa-minus',
+                    next: 'fa fa-chevron-right',
+                    previous: 'fa fa-chevron-left'
+                    }
                 }).data("DateTimePicker").format('MMM Do YYYY').defaultDate(endDate).date(endDate);
 
                 $("#datetimepickerStart").on("dp.change", function (e) {

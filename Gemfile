@@ -51,9 +51,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use MomentJs for datepicker
 gem 'momentjs-rails', '>= 2.9.0'
-# Use bootstrap for datepicker
+# Use bootstrap for datepicker 
 gem 'bootstrap-sass', '~> 3.3.6'
-# Use Datepicker for Date
+# Use Datepicker for Date Filter
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
 
 
